@@ -35,6 +35,9 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'vim-airline/vim-airline' "change style of tabline
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'airblade/vim-gitgutter'  "add gutter info
+Plugin 'tomtom/tcomment_vim'    "comment blocks of text
+Plugin 'tpope/vim-surround'     "sorrund/replace paragraphs with tags or {('...
+Plugin 'vim-scripts/mru.vim'    "show last most recent used files
 "Style plugins
 Plugin 'flazz/vim-colorschemes' "A lot of colorschemes
 "Plugin 'tomasr/molokai'         "Molokai colorscheme
@@ -59,10 +62,13 @@ set number "This turns on line numbering
 
 " Enable syntax highlighting and colorscheme
 syntax enable
+set t_Co=256
 set background=dark
-colorscheme desert
-
-
+colorscheme jellybeans
+"colorscheme molokai
+"colorscheme corporation
+"colorscheme desert256i
+"
 " Set extra options when running in GUI mode
 if has("gui_running")
     set guioptions-=T
@@ -107,6 +113,9 @@ set backspace=indent,eol,start	" Backspace behaviour
 
 " Vim airline
 set laststatus=2
+let g:airline#extensions#tabline#enabled = 1
+"let g:airline_powerline_fonts = 1
+let g:airline_theme='jellybeans'
 
 " CtrlP
 let g:ctrlp_map = '<c-p>'
