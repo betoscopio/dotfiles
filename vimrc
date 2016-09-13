@@ -60,6 +60,15 @@ filetype plugin indent on    " required
 set number "This turns on line numbering
 "syntax on "Enable colored syntax
 
+" Set extra options when running in GUI mode
+if has("gui_running")
+    set guioptions-=T
+    set guioptions+=e
+    set t_Co=256
+    set guitablabel=%M\ %t
+    set guifont=Meslo\ LG\ S\ Regular\ for\ Powerline\ 12
+endif
+
 " Enable syntax highlighting and colorscheme
 syntax enable
 set t_Co=256
@@ -67,16 +76,8 @@ set background=dark
 colorscheme jellybeans
 "colorscheme molokai
 "colorscheme corporation
-"colorscheme desert256i
+"colorscheme desert256
 "
-" Set extra options when running in GUI mode
-if has("gui_running")
-    set guioptions-=T
-    set guioptions+=e
-    set t_Co=256
-    set guitablabel=%M\ %t
-endif
-
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
 
@@ -114,8 +115,36 @@ set backspace=indent,eol,start	" Backspace behaviour
 " Vim airline
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
-"let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 1
+let g:Powerline_symbols = 'fancy'
 let g:airline_theme='jellybeans'
+
+if !exists('g:airline_symbols')
+      let g:airline_symbols = {}
+    endif
+
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+
+" Powerline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
 
 " CtrlP
 let g:ctrlp_map = '<c-p>'
